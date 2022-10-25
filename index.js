@@ -1,8 +1,9 @@
 const express = require("express");
 const morgan = require("morgan");
-const port = 3000;
+const port = 4000;
 const mongoose = require("mongoose");
 const { getAllHotels, createHotels, getHotelsById, deleteHotelsById } = require("./controller/hotel.controller");
+const { getAllHotelsDetails, createHotelDtails } = require("./controller/hotel_details.controller");
 
 
 mongoose
@@ -32,6 +33,10 @@ app.post("/api/v1/createHotel", createHotels);
 app.get('/api/v1/getHotelsById/:id?', getHotelsById);
 
 app.delete('/api/v1/deleteHotelsById/:id?', deleteHotelsById);
+
+app.get("/api/v1/getAllHotelsDetails",getAllHotelsDetails)
+
+app.post("/api/v1/createHotelDtails",createHotelDtails)
 
 // app.get('/api/v1/getHotelsById/:id?', function(req, res) {
 //     getHotelsById = req.params.id !== undefined ?

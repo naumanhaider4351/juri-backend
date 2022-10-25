@@ -13,12 +13,12 @@ exports.getAllHotels = async (req, res) => {
 };
 
 exports.createHotels = async (req, res) => {
-  const { hotelName, imgUrl } = req.body;
+  const { CategoryName, imgUrl } = req.body;
 
-  if (hotelName === "" || hotelName === undefined) {
+  if (CategoryName === "" || CategoryName === undefined) {
     return res
       .status(422)
-      .json({ success: false, message: "Hotel Name is required" });
+      .json({ success: false, message: "Category Name is required" });
   } else {
     const hotel = new Hotel(req.body);
     try {
