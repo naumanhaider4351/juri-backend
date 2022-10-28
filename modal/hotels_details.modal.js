@@ -29,6 +29,11 @@ const hotelDetails = new mongoose.Schema(
       trim: true,
       required: true,
     },
+    description:{
+      type: String,
+      trim: true,
+      required: true,
+    },
     products:[
       {product_id: String,product_name:String,product_img:String}]
   },

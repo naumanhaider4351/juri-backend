@@ -12,6 +12,17 @@ exports.getAllHotels = async (req, res) => {
   });
 };
 
+exports.getSearchedCategory = async (req, res) => {
+  if (req.query.cat)
+  Hotel.find({ CategoryName: { $in: req.query.cat } }, function (err, item) {
+    console.log(Hotel);
+    return res.status(200).json({ hotels: item, success: true });
+  });
+  else{
+  return res.status(500).json({ error:'Check the param', success: false });
+  }
+};
+
 exports.createHotels = async (req, res) => {
   const { CategoryName, imgUrl } = req.body;
 
